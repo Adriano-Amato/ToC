@@ -43,6 +43,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     ParticleSystem tileExplosionFx;
 
+    [Header("Mission")]
+    [SerializeField]
+    GameObject MissionEntryPoint;
+    [SerializeField]
+    List<Mesh> skins;
+    private Mesh selectedMeshModel;
+
     Animator animator;
 
     float minPercent = 0;
@@ -80,6 +87,7 @@ public class GameManager : Singleton<GameManager>
         percentCounter.SetValue(SaveData.PreviousHighscore);
         percentCounter.SetShadowValue(SaveData.PreviousHighscore);
         percentCounter.SetValueSmooth(0f);
+        MissionEntryPoint.SetActive(RemoteConfig.MISSIONS_ENABLED);
     }
 
     void OnBallShot()
@@ -124,6 +132,33 @@ public class GameManager : Singleton<GameManager>
     {
         SetGameState(GameState.Playing);
         tower.StartGame();
+    }
+
+    public Mesh GetSelectedSkinModel()
+    {
+        return selectedMeshModel;
+    }
+
+    public void SelectSkinModelMesh(string skin)
+    {
+        switch(skin)
+        {
+            case "Sphere":
+                selectedMeshModel = skins[0];
+                break;
+            case "Classic":
+                selectedMeshModel = skins[1];
+                break;
+            case "Brazu":
+                selectedMeshModel = skins[2];
+                break;
+            case "Jabulani":
+                selectedMeshModel = skins[3];
+                break;
+            case "Champions":
+                selectedMeshModel = skins[4];
+                break;
+        }
     }
 
 }

@@ -9,6 +9,7 @@ public class BallProjectile : MonoBehaviour
     int ColorIndex = 0;
     new Renderer renderer;
     Material originalMaterial;
+    MeshFilter meshFilter;
 
     TowerTile target;
     Collider _collider;
@@ -18,11 +19,13 @@ public class BallProjectile : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         renderer = GetComponent<Renderer>();
         _collider = GetComponent<Collider>();
+        meshFilter = GetComponent<MeshFilter>();
         
         if (renderer)
             originalMaterial = renderer.material;
 
         TileColorManager.Instance.OnColorListChanged += ResetColor;
+        meshFilter.mesh = GameManager.Instance.GetSelectedSkinModel();
     }
 
     private void Update()

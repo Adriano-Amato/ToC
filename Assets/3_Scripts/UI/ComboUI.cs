@@ -50,6 +50,8 @@ public class ComboUI : MonoBehaviour
     public void CountCombo(Vector3 worldPos)
     {
         if (this.isActiveAndEnabled) {
+            GameManager.Instance.CheckAndUpdateMissionOfType(currentCombo, MissionType.ReachCombo);
+            EventManager.Instance.ComboChanged(currentCombo);
             if (++currentCombo > minCount) {
                 targetPos = mainCamera.WorldToScreenPoint(worldPos);
                 comboText.text = $"x{currentCombo}";

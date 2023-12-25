@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aabed3266dc27048838fb6f8d2b8756, type: 3}
+  m_Name: Shoot10Balls
+  m_EditorClassIdentifier: 
+  displayName: Shoot 10 Balls
+  difficulty: 0
+  missionPrerequisite:
+  - {fileID: 11400000, guid: 55dc7b96165495746acc501adf68f1ad, type: 2}
+  - {fileID: 11400000, guid: 69b2e8ff6a08f5849961cf3d48f07ab9, type: 2}
+  - {fileID: 11400000, guid: 34ea601fac38a6f4096434106e05cc63, type: 2}
+  missionStepPrefabs:
+  - {fileID: 4017846994080953751, guid: 570e63a19d039d74d860285bcace6545, type: 3}

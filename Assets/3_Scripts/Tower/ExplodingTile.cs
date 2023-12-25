@@ -38,6 +38,8 @@ public class ExplodingTile : TowerTile
     {
         if (!Active)
             return;
+
+        EventManager.Instance.BarrelExploded(1);
         base.Explode(instant);
         Collider[] hits = Physics.OverlapSphere(transform.position, radius, 1 << gameObject.layer);
         foreach (Collider hit in hits) {

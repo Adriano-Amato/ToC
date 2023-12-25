@@ -16,6 +16,6 @@ public class MissionGoal
 public enum MissionType
 {
     ReachLevel,
-    ReachMultiplier,
+    ReachCombo,
     ExplodeBarrels
 }

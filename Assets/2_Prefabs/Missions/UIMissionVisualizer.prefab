@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tfMissionText: {fileID: 2218908346147261534}
-  isCompleted: 0
+  tfDifficulty: {fileID: 6919868083096424635}
+  tfCompleted: {fileID: 6450531999958325263}
 --- !u!114 &2897673473825245026
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,12 +43,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     ParticleSystem tileExplosionFx;
 
-    [Header("Mission")]
+    [Header("Skin")]
     [SerializeField]
-    GameObject MissionEntryPoint;
+    private List<Mesh> projectileMeshes;
+    public Mesh selectedMesh;
+    [Header("Mission Manager")]
     [SerializeField]
-    List<Mesh> skins;
-    private Mesh selectedMeshModel;
+    public MissionManager missionManager;
 
     Animator animator;
 
@@ -80,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         tileCount = tower.FloorCount * tower.TileCountPerFloor;
         ballCount = Mathf.FloorToInt(ballToTileRatioPerLevel.Evaluate(SaveData.CurrentLevel) * tileCount);
         ballCountText.text = ballCount.ToString("N0");
+        selectedMesh = projectileMeshes[missionManager.missionCompleted / 3];
         ballShooter.OnBallShot += OnBallShot;
 
         percentCounter.SetColor(TileColorManager.Instance.GetColor(Mathf.FloorToInt(Random.value * TileColorManager.Instance.ColorCount)));
@@ -87,11 +89,11 @@ public class GameManager : Singleton<GameManager>
         percentCounter.SetValue(SaveData.PreviousHighscore);
         percentCounter.SetShadowValue(SaveData.PreviousHighscore);
         percentCounter.SetValueSmooth(0f);
-        MissionEntryPoint.SetActive(RemoteConfig.MISSIONS_ENABLED);
     }
 
     void OnBallShot()
     {
+        EventManager.Instance.BallShot();
         ballCount--;
         ballCountText.text = ballCount.ToString("N0");
         if (ballCount == 1) {
@@ -134,31 +136,42 @@ public class GameManager : Singleton<GameManager>
         tower.StartGame();
     }
 
-    public Mesh GetSelectedSkinModel()
+    public void CheckAndUpdateMissionOfType(int ammount, MissionType missionType)
     {
-        return selectedMeshModel;
-    }
+        //if (!missionManager.MissionOfTypeActive(missionType))
+        //    return;
 
-    public void SelectSkinModelMesh(string skin)
-    {
-        switch(skin)
-        {
-            case "Sphere":
-                selectedMeshModel = skins[0];
-                break;
-            case "Classic":
-                selectedMeshModel = skins[1];
-                break;
-            case "Brazu":
-                selectedMeshModel = skins[2];
-                break;
-            case "Jabulani":
-                selectedMeshModel = skins[3];
-                break;
-            case "Champions":
-                selectedMeshModel = skins[4];
-                break;
-        }
+        //Debug.Log("easyType:" + missionManager.EasyMissionActiveType() +
+        //    ", mediumType:" + missionManager.MediumMissionActiveType() +
+        //    ", hardType:" + missionManager.HardMissionActiveType());
+        //if (missionManager.EasyMissionActiveType() == missionType)
+        //{
+        //    Debug.Log("incremented easy");
+        //    missionManager.EasyMissionActive.IncrementCompletion(ammount);
+        //}
+
+        //if (missionManager.MediumMissionActiveType() == missionType)
+        //{
+        //    Debug.Log("incremented medium");
+        //    missionManager.MediumMissionActive.IncrementCompletion(ammount);
+        //}
+        
+        //if (missionManager.HardMissionActiveType() == missionType)
+        //{
+        //    Debug.Log("incremented hard");
+        //    missionManager.HardMissionActive.IncrementCompletion(ammount);
+        //}
     }
+  
+
+    //public Mesh GetSelectedSkinModel()
+    //{
+    //    return selectedMeshModel;
+    //}
+
+    //public void SelectSkinModelMesh(Mesh skin)
+    //{
+    //    selectedMeshModel = skin;
+    //}
 
 }

@@ -25,7 +25,7 @@ public class BallProjectile : MonoBehaviour
             originalMaterial = renderer.material;
 
         TileColorManager.Instance.OnColorListChanged += ResetColor;
-        meshFilter.mesh = GameManager.Instance.GetSelectedSkinModel();
+        //meshFilter.mesh = GameManager.Instance.GetSelectedSkinModel();
     }
 
     private void Update()
@@ -47,6 +47,11 @@ public class BallProjectile : MonoBehaviour
     public void SetColor(Color color)
     {
         renderer.sharedMaterial = TileColorManager.GetSharedMaterial(originalMaterial, color);
+    }
+
+    public void SetMesh(Mesh mesh)
+    {
+        meshFilter.mesh = mesh;
     }
 
     public void SetColorIndex(int index)

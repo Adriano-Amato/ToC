@@ -6,17 +6,23 @@ using UnityEngine;
 
 public class UIMissionVisualizer : MonoBehaviour
 {
+    [SerializeField] private int missionStepCount;
     [SerializeField] private TextMeshProUGUI tfMissionText;
     [SerializeField] private TextMeshProUGUI tfDifficulty;
     [SerializeField] private TextMeshProUGUI tfCompleted;
 
-    public void Setup(Mission m)
+    public void Setup(MissionStep missionStep, int currentMissionStep)
     {
-        tfMissionText.text = m.missionInfo.displayName;
-        tfDifficulty.text = m.missionInfo.difficulty.ToString();
+        tfMissionText.text = missionStep.displayName;
+        tfDifficulty.text = missionStep.difficulty.ToString();
+        bool isCurrentMission = currentMissionStep == missionStepCount;
+        bool notCompletedMission = currentMissionStep < missionStepCount;
 
-        tfDifficulty.gameObject.SetActive(m.missionState is not MissionState.FINISHED);
-        tfMissionText.gameObject.SetActive(m.missionState is not MissionState.FINISHED);
-        tfCompleted.gameObject.SetActive(m.missionState is MissionState.FINISHED);
+        tfMissionText.color = isCurrentMission ? Color.blue : Color.black;
+
+
+        tfDifficulty.gameObject.SetActive(currentMissionStep <= missionStepCount);
+        tfMissionText.gameObject.SetActive(currentMissionStep <= missionStepCount);
+        tfCompleted.gameObject.SetActive(currentMissionStep > missionStepCount);
     }
 }

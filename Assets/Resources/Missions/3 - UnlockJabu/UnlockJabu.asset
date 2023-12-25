@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aabed3266dc27048838fb6f8d2b8756, type: 3}
+  m_Name: UnlockJabu
+  m_EditorClassIdentifier: 
+  displayName: Unlock THE "JABULANI" !!!
+  missionPrerequisite:
+  - {fileID: 11400000, guid: 1a44d5f4f816db340b4a8fe7b66c3f22, type: 2}
+  missionStepPrefabs:
+  - {fileID: 132537657925325849, guid: 7bb8f4bae6e75fe4a8228773da26be17, type: 3}
+  - {fileID: 6147011075043331838, guid: 5d6c674ac9f627c45807021881441e71, type: 3}
+  - {fileID: 5014922582226650799, guid: a02872fcba17b3a40b9ed688f9432ad0, type: 3}

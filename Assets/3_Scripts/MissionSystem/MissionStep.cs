@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class MissionStep : MonoBehaviour
 {
+    public MissionStepDifficulty difficulty;
+    public string displayName;
     private bool isFinished = false;
     private string missionId;
     private int stepIndex;
@@ -24,6 +26,7 @@ public abstract class MissionStep : MonoBehaviour
         if(!isFinished)
         {
             isFinished = true;
+            
             EventManager.Instance.AdvanceQuest(this.missionId);
             Destroy(gameObject);
         }

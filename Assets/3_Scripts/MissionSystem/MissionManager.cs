@@ -121,6 +121,7 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
+            ChangeMissionState(mission.missionInfo.Id, MissionState.FINISHED);
             EventManager.Instance.FinishMission(mission.missionInfo.Id);
         }
     }
@@ -200,7 +201,6 @@ public class MissionManager : MonoBehaviour
                 string serializedData = PlayerPrefs.GetString(missionInfoSO.Id);
                 MissionData missionData = JsonUtility.FromJson<MissionData>(serializedData);
                 mission = new Mission(missionInfoSO, missionData.state, missionData.missionStepIndex, missionData.missionStepStates);
-                //Debug.Log("-_- mission:" + mission.missionInfo.name + " state:" + mission.missionState);
 
                 if (mission.missionState is MissionState.STARTED)
                 {

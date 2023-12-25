@@ -9,51 +9,79 @@ public class MissionPopup : MonoBehaviour
     [SerializeField] private UIMissionVisualizer easyMission;
     [SerializeField] private UIMissionVisualizer normalMission;
     [SerializeField] private UIMissionVisualizer hardMission;
-    [SerializeField] private Animation contentAnimation;
-    [SerializeField] private AnimationClip closeContent;
-    [SerializeField] private AnimationClip openContent;
+    [SerializeField] private Animator animator;
 
     private void OnEnable()
     {
-        EventManager.Instance.onStartMission += SetupMissions;
-        EventManager.Instance.onFinishMission += SetupMissions;
+        EventManager.Instance.onMissionStateChange += SetupMissions;
         EventManager.Instance.onMissionsLoad += SetupMissions;
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.onStartMission -= SetupMissions;
-        EventManager.Instance.onFinishMission -= SetupMissions;
+        EventManager.Instance.onMissionStateChange -= SetupMissions;
         EventManager.Instance.onMissionsLoad -= SetupMissions;
     }
 
     private void SetupMissions(string missionId)
     {
         Mission mission = GameManager.Instance.missionManager.GetMissionById(missionId);
-       
-        switch (mission.missionInfo.difficulty) 
+        var missionSteps = mission.missionInfo.missionStepPrefabs;
+        MissionStep missionStep;
+
+        foreach( var step in missionSteps)
         {
-            case MissionDifficulty.EASY:
-                easyMission.Setup(mission);
-                break;
-            case MissionDifficulty.NORMAL:
-                normalMission.Setup(mission);
-                break;
-            case MissionDifficulty.HARD:
-                hardMission.Setup(mission);
-                break;
+            missionStep = step.GetComponent<MissionStep>();
+
+            switch(missionStep.difficulty)
+            {
+                case MissionStepDifficulty.EASY:
+                    easyMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+                case MissionStepDifficulty.NORMAL:
+                    normalMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+                case MissionStepDifficulty.HARD:
+                    hardMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+                
+            }
+        }
+    }
+
+    private void SetupMissions(Mission mission)
+    {
+        var missionSteps = mission.missionInfo.missionStepPrefabs;
+        MissionStep missionStep;
+
+        foreach (var step in missionSteps)
+        {
+            missionStep = step.GetComponent<MissionStep>();
+
+            switch (missionStep.difficulty)
+            {
+                case MissionStepDifficulty.EASY:
+                    easyMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+                case MissionStepDifficulty.NORMAL:
+                    normalMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+                case MissionStepDifficulty.HARD:
+                    hardMission.Setup(missionStep, mission.currentMissionStepIndex);
+                    break;
+
+            }
         }
     }
 
     public void PlayOpenAnim()
     {
-        contentAnimation.clip = openContent;
-        contentAnimation.Play();
+        if(!animator.GetBool("shouldOpen"))
+            animator.SetBool("shouldOpen", true);
     }
 
     public void PlayCloseAnim()
     {
-        contentAnimation.clip = closeContent;
-        contentAnimation.Play();
+        animator.SetBool("shouldOpen", false);
     }
 }

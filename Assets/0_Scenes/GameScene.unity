@@ -2408,7 +2408,6 @@ GameObject:
   - component: {fileID: 426544521}
   - component: {fileID: 426544520}
   - component: {fileID: 426544519}
-  - component: {fileID: 426544522}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2507,23 +2506,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426544517}
   m_CullTransparentMesh: 1
---- !u!111 &426544522
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426544517}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 7092b46123036dd41a5233f8b00ad0da, type: 2}
-  - {fileID: 7400000, guid: de512f4b71e35884da5b35fd0e07df82, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &435912712
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,6 +3514,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.29079926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278240586
       objectReference: {fileID: 0}
     - target: {fileID: 8789621707268119573, guid: ee4a53b9f652c1943ba56a4a7275d250,
         type: 3}
@@ -12321,6 +12323,7 @@ GameObject:
   - component: {fileID: 1046635951}
   - component: {fileID: 1046635954}
   - component: {fileID: 1046635952}
+  - component: {fileID: 1046635955}
   m_Layer: 5
   m_Name: MissionPopup
   m_TagString: Untagged
@@ -12366,9 +12369,7 @@ MonoBehaviour:
   easyMission: {fileID: 583163137}
   normalMission: {fileID: 1783638207}
   hardMission: {fileID: 1712079659}
-  contentAnimation: {fileID: 426544522}
-  closeContent: {fileID: 7400000, guid: de512f4b71e35884da5b35fd0e07df82, type: 2}
-  openContent: {fileID: 7400000, guid: 7092b46123036dd41a5233f8b00ad0da, type: 2}
+  animator: {fileID: 1046635955}
 --- !u!222 &1046635954
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12377,6 +12378,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046635950}
   m_CullTransparentMesh: 1
+--- !u!95 &1046635955
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046635950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f92e2ef64896e6349ba41ecbc05e6805, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1049318456
 GameObject:
   m_ObjectHideFlags: 0
@@ -16821,6 +16843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HardMission
       objectReference: {fileID: 0}
+    - target: {fileID: 2218908344457716629, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: missionStepCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2218908346147261535, guid: ee4a53b9f652c1943ba56a4a7275d250,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -16845,6 +16872,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190335
       objectReference: {fileID: 0}
     - target: {fileID: 8789621707268119573, guid: ee4a53b9f652c1943ba56a4a7275d250,
         type: 3}
@@ -17791,6 +17838,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumMission
       objectReference: {fileID: 0}
+    - target: {fileID: 2218908344457716629, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: missionStepCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2218908346147261535, guid: ee4a53b9f652c1943ba56a4a7275d250,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -17815,6 +17867,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.88550174
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919868083096424635, guid: ee4a53b9f652c1943ba56a4a7275d250,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278248191
       objectReference: {fileID: 0}
     - target: {fileID: 8789621707268119573, guid: ee4a53b9f652c1943ba56a4a7275d250,
         type: 3}

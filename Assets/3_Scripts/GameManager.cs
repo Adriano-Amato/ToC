@@ -81,7 +81,7 @@ public class GameManager : Singleton<GameManager>
         tileCount = tower.FloorCount * tower.TileCountPerFloor;
         ballCount = Mathf.FloorToInt(ballToTileRatioPerLevel.Evaluate(SaveData.CurrentLevel) * tileCount);
         ballCountText.text = ballCount.ToString("N0");
-        selectedMesh = projectileMeshes[missionManager.missionCompleted / 3];
+        selectedMesh = projectileMeshes[missionManager.missionCompleted];
         ballShooter.OnBallShot += OnBallShot;
 
         percentCounter.SetColor(TileColorManager.Instance.GetColor(Mathf.FloorToInt(Random.value * TileColorManager.Instance.ColorCount)));

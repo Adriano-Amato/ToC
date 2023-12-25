@@ -10,7 +10,6 @@ public class MissionInfoSO: ScriptableObject
 
     [Header("General")]
     public string displayName;
-    public MissionDifficulty difficulty;
 
     [Header("Requirements")]
     public MissionInfoSO[] missionPrerequisite;
@@ -26,7 +25,7 @@ public class MissionInfoSO: ScriptableObject
     }
 }
 
-public enum MissionDifficulty
+public enum MissionStepDifficulty
 {
     EASY,
     NORMAL,

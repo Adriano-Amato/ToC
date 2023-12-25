@@ -6,7 +6,7 @@ public class Mission
 {
     public MissionInfoSO missionInfo;
     public MissionState missionState;
-    private int currentMissionStepIndex;
+    public int currentMissionStepIndex { get; private set;}
     private MissionStepState[] missionStepStates;
 
     public Mission(MissionInfoSO missionSO)

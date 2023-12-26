@@ -1,6 +1,7 @@
 Unity Game Dev – Case Study Adriano Amato
 This ReadMe should explain every solution implemented for the given taks, if something is 
 unclear please contact me, I will be more than happy to give extra explinations!
+
 #1 Optimizations
 For the first point, optimizing the UI assets, I removed every Raycast target from Images that shoudn't be interactable (I.E. the level bar images) and furthermore 
 I enabled GPU instancing for the barrel materials.

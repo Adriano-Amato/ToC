@@ -76,6 +76,9 @@ public class Tower : MonoBehaviour
             float maxHeight = 0;
             foreach (List<TowerTile> floor in tilesByFloor) {
                 foreach (TowerTile t in floor) {
+                    if (!t.isActiveAndEnabled)
+                        continue;
+
                     if (t != null)
                         maxHeight = Mathf.Max(t.transform.position.y, maxHeight);
                 }
@@ -95,7 +98,7 @@ public class Tower : MonoBehaviour
             foreach (List<TowerTile> tileList in tilesByFloor) {
                 foreach (TowerTile tile in tileList) {
                     if (Application.isPlaying)
-                        Destroy(tile.gameObject);
+                        TileSpawner.Instance._pool.Release(tile);
                     else
                         DestroyImmediate(tile.gameObject);
                 }

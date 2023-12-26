@@ -3,7 +3,6 @@ This ReadMe should explain every solution implemented for the given taks, if som
 unclear please contact me, I will be more than happy to give extra explinations!
 
 #1 Optimizations
-
 For the first point, optimizing the UI assets, I removed every Raycast target from Images that shoudn't be interactable (I.E. the level bar images) and furthermore 
 I enabled GPU instancing for the barrel materials.
 As for the pooling system for the barrels I added the Singleton "TileSpawner", the name is used to follow the projects naming convention, in which I create a pool of Tiles
@@ -11,7 +10,6 @@ with a minSize and a maxSize that can be easily changed in the inspector (the sc
 CreatedTile() method and then in the "Tower.cs" script I simply ask to get a Tile from the TileSpawner when the tower needs one and release the ones that get destroyed.
 
 2# Mission System
-
 To access the mission system, I added an access point that followed the UX design of the Options button, it interacts with the "MissionPopup" that displays relevant
 informations about the mission. To implement the Mission system I added a MissionManager that holds a dictionary of all the missions and holds a reference to the
 number of missions completed and the entry point to enable it, it also defines events to handle the start, advancement and finishing part of a mission, triggering them

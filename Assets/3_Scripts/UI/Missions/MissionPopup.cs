@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MissionPopup : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI tfTitle, tfSubtitle;
+    [SerializeField] private TextMeshProUGUI tfSubtitle;
     [SerializeField] private UIMissionVisualizer easyMission;
     [SerializeField] private UIMissionVisualizer normalMission;
     [SerializeField] private UIMissionVisualizer hardMission;
@@ -28,6 +28,7 @@ public class MissionPopup : MonoBehaviour
     private void SetupMissions(string missionId)
     {
         Mission mission = GameManager.Instance.missionManager.GetMissionById(missionId);
+        tfSubtitle.text = mission.missionInfo.displayName;
         var missionSteps = mission.missionInfo.missionStepPrefabs;
         MissionStep missionStep;
 
@@ -53,6 +54,7 @@ public class MissionPopup : MonoBehaviour
 
     private void SetupMissions(Mission mission)
     {
+        tfSubtitle.text = mission.missionInfo.displayName;
         var missionSteps = mission.missionInfo.missionStepPrefabs;
         MissionStep missionStep;
 

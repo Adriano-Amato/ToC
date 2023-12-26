@@ -77,10 +77,6 @@ public class MissionManager : MonoBehaviour
         return meetsRequirements;
     }
 
-    private void Update()
-    {
-    }
-
     private void StartMission(string id)
     {
         Mission mission = GetMissionById(id);

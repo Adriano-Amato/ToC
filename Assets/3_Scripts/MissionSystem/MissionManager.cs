@@ -182,7 +182,6 @@ public class MissionManager : MonoBehaviour
 
                 if (mission.missionState is MissionState.STARTED)
                 {
-                    Debug.Log("-_- called");
                     EventManager.Instance.MissionsLoad(mission.missionInfo.Id);
                 }
 

@@ -25,3 +25,5 @@ the difficulty of the step, a display name, an internal boolean to check if the 
 to missions, to notify everyone about a finished step, a change of state of a step and the initialization of the step. Mission steps need to be completed in the selected order in the "MissionInfoSO".
 2. Non-Static information: The non-static informations are stored in a "Mission" class that holds the static informations of the MissionInfoSO, the state of the mission, the index of the current 
 MissionStep and an array of states for the MissionSteps. This class handles the interaction with the mission and its steps with methods like "MoveToNextStep()".
+
+After completing each mission, the player is rewarded with a different ball that the GameManager assigns to the projectiles, makeing the process of creating new rewards fairly easy as the only thing needed is a 3D model of the ball

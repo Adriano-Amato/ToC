@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aabed3266dc27048838fb6f8d2b8756, type: 3}
   m_Name: UnlockBrazu
   m_EditorClassIdentifier: 
-  displayName: 
+  displayName: Unlock the "Brazu" Ball!
   missionPrerequisite:
   - {fileID: 11400000, guid: a9cc208382613154789da04eb203cf31, type: 2}
   missionStepPrefabs:

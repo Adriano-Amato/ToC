@@ -25,7 +25,6 @@ public class BallProjectile : MonoBehaviour
             originalMaterial = renderer.material;
 
         TileColorManager.Instance.OnColorListChanged += ResetColor;
-        //meshFilter.mesh = GameManager.Instance.GetSelectedSkinModel();
     }
 
     private void Update()

@@ -135,43 +135,4 @@ public class GameManager : Singleton<GameManager>
         SetGameState(GameState.Playing);
         tower.StartGame();
     }
-
-    public void CheckAndUpdateMissionOfType(int ammount, MissionType missionType)
-    {
-        //if (!missionManager.MissionOfTypeActive(missionType))
-        //    return;
-
-        //Debug.Log("easyType:" + missionManager.EasyMissionActiveType() +
-        //    ", mediumType:" + missionManager.MediumMissionActiveType() +
-        //    ", hardType:" + missionManager.HardMissionActiveType());
-        //if (missionManager.EasyMissionActiveType() == missionType)
-        //{
-        //    Debug.Log("incremented easy");
-        //    missionManager.EasyMissionActive.IncrementCompletion(ammount);
-        //}
-
-        //if (missionManager.MediumMissionActiveType() == missionType)
-        //{
-        //    Debug.Log("incremented medium");
-        //    missionManager.MediumMissionActive.IncrementCompletion(ammount);
-        //}
-        
-        //if (missionManager.HardMissionActiveType() == missionType)
-        //{
-        //    Debug.Log("incremented hard");
-        //    missionManager.HardMissionActive.IncrementCompletion(ammount);
-        //}
-    }
-  
-
-    //public Mesh GetSelectedSkinModel()
-    //{
-    //    return selectedMeshModel;
-    //}
-
-    //public void SelectSkinModelMesh(Mesh skin)
-    //{
-    //    selectedMeshModel = skin;
-    //}
-
 }

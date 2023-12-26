@@ -10,12 +10,16 @@ public class MissionManager : MonoBehaviour
 
     [SerializeField] private GameObject missionEntryPoint;
 
+    private void Awake()
+    {
+        missionMap = CreateMissionMap();
+    }
+
     private void OnEnable()
     {
         if(!RemoteConfig.MISSIONS_ENABLED)
             gameObject.SetActive(false);
 
-        missionMap = CreateMissionMap();
         EventManager.Instance.onStartMission += StartMission;
         EventManager.Instance.onAdvanceMission += AdvanceMission;
         EventManager.Instance.onFinishMission += FinishMission;
@@ -36,25 +40,11 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        //foreach (Mission mission in missionMap.Values)
-        //{
-        //    if (mission.missionState == MissionState.FINISHED)
-        //        return;
-
-
-        //    if (mission.missionState == MissionState.STARTED) //|| 
-        //        (CheckRequirements(mission) && mission.missionState is MissionState.MEET_REQUIREMENTS))
-        //    {
-        //        mission.InstantiateMissionStep(this.transform);
-        //    }
-
-        //    EventManager.Instance.MissionStateChange(mission);
-        //}
-
         foreach (Mission mission in missionMap.Values)
         {
             if (mission.missionState == MissionState.STARTED)
             {
+                EventManager.Instance.StartMission(mission.missionInfo.Id);
                 mission.InstantiateMissionStep(this.transform);
             }
             else if (mission.missionState == MissionState.MEET_REQUIREMENTS && CheckRequirements(mission))
@@ -89,18 +79,6 @@ public class MissionManager : MonoBehaviour
 
     private void Update()
     {
-        //foreach(Mission mission in missionMap.Values)
-        //{
-        //    if (mission.missionState == MissionState.STARTED)
-        //    {
-        //        mission.InstantiateMissionStep(this.transform);
-        //    }
-        //    else if (mission.missionState==MissionState.MEET_REQUIREMENTS && CheckRequirements(mission))
-        //    {
-        //        ChangeMissionState(mission.missionInfo.Id, MissionState.STARTED);
-        //        mission.InstantiateMissionStep(this.transform);
-        //    } 
-        //}
     }
 
     private void StartMission(string id)
@@ -204,6 +182,7 @@ public class MissionManager : MonoBehaviour
 
                 if (mission.missionState is MissionState.STARTED)
                 {
+                    Debug.Log("-_- called");
                     EventManager.Instance.MissionsLoad(mission.missionInfo.Id);
                 }
 

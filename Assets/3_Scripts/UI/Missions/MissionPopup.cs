@@ -15,25 +15,30 @@ public class MissionPopup : MonoBehaviour
     {
         EventManager.Instance.onMissionStateChange += SetupMissions;
         EventManager.Instance.onMissionsLoad += SetupMissions;
+        Debug.Log("-_- can call");
+        EventManager.Instance.onAdvanceMission += SetupMissions;
     }
 
     private void OnDisable()
     {
         EventManager.Instance.onMissionStateChange -= SetupMissions;
         EventManager.Instance.onMissionsLoad -= SetupMissions;
+        EventManager.Instance.onAdvanceMission -= SetupMissions;
     }
 
     private void SetupMissions(string missionId)
     {
         Mission mission = GameManager.Instance.missionManager.GetMissionById(missionId);
+        Debug.Log("-_- called by:"+mission.missionInfo.name);
         var missionSteps = mission.missionInfo.missionStepPrefabs;
         MissionStep missionStep;
 
         foreach( var step in missionSteps)
         {
             missionStep = step.GetComponent<MissionStep>();
+            Debug.Log("-_- loading step:"+missionStep.name);
 
-            switch(missionStep.difficulty)
+            switch (missionStep.difficulty)
             {
                 case MissionStepDifficulty.EASY:
                     easyMission.Setup(missionStep, mission.currentMissionStepIndex);

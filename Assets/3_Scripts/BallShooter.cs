@@ -36,7 +36,10 @@ public class BallShooter : MonoBehaviour
         if (lastColor == colorIndex)
             colorIndex = (colorIndex + 1) % TileColorManager.Instance.ColorCount;
         currentProjectile.SetColorIndex(colorIndex);
-        currentProjectile.SetMesh(GameManager.Instance.selectedMesh);
+
+        if(RemoteConfig.MISSIONS_ENABLED)
+            currentProjectile.SetMesh(GameManager.Instance.selectedMesh);
+
         lastColor = colorIndex;
     }
 

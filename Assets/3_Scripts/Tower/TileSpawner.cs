@@ -45,36 +45,4 @@ public class TileSpawner : MonoBehaviour
     {
         Destroy(Instance.gameObject);
     }
-
-    //public Queue<TowerTile> tilesPool;
-
-    //[SerializeField]
-    //public int size;
-
-    //private void Start()
-    //{
-    //    tilesPool = new Queue<TowerTile>();
-    //    TowerTile tile = null;
-    //    for(int i = 0; i < size ; i++)
-    //    {
-    //        tile = Random.value > tower.SpecialTileChance ? tower.TilePrefab :
-    //               tower.SpecialTilePrefabs[Random.Range(0, tower.SpecialTilePrefabs.Length)];
-    //        Instantiate(tile, tower.transform);
-    //       tile.gameObject.SetActive(false);
-    //       tilesPool.Enqueue(tile);
-    //    }
-    //}
-
-    //public TowerTile GetFromPool(Vector3 position, Quaternion rotation)
-    //{
-    //    TowerTile tile = tilesPool.Dequeue();
-
-    //    tile.gameObject.SetActive(true);
-    //    tile.gameObject.transform.position = position;
-    //    tile.gameObject.transform.rotation = rotation;
-
-    //    tilesPool.Enqueue(tile);
-
-    //    return tile;
-    //}
 }

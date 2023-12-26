@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cc8e421154bc94f81e0a415c46e51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionStepCount: 0
   tfMissionText: {fileID: 2218908346147261534}
   tfDifficulty: {fileID: 6919868083096424635}
   tfCompleted: {fileID: 6450531999958325263}
